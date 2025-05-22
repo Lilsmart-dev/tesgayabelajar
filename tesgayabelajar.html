@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes Gaya Belajar Anak</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+      font-size: 1.8rem;
+    }
+    header {
+      background-color: #e3f6f5;
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 4.5rem;
+    }
+    header p {
+      font-size: 2.4rem;
+      max-width: 1000px;
+      margin: 2rem auto 0;
+    }
+    .container {
+      padding: 6rem 3rem;
+      max-width: 1600px;
+      margin: auto;
+    }
+    form {
+      background: white;
+      padding: 4rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+    button {
+      margin-top: 3rem;
+      width: 100%;
+      padding: 2rem;
+      font-size: 2rem;
+      background-color: #38b6ff;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #2597d5;
+    }
+    #result {
+      margin-top: 4rem;
+      padding: 4rem;
+      background: #e6f7ff;
+      border-left: 10px solid #38b6ff;
+      border-radius: 24px;
+      font-size: 2rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer {
+      margin-top: 6rem;
+      text-align: center;
+      font-style: italic;
+      color: #666;
+      font-size: 2rem;
+    }
+    .premium-link {
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .premium-link a {
+      display: inline-block;
+      background-color: #ffc107;
+      padding: 1.5rem 3rem;
+      border-radius: 16px;
+      color: #333;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .premium-link a:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌱 Temani Tumbuh - Tes Gaya Belajar Anak</h1>
+    <p>Pilih beberapa pernyataan yang paling menggambarkan perilaku anak Anda sehari-hari. Fokus pada apa yang paling sering terlihat atau dilakukan oleh anak.</p>
+  </header>
+
+  <div class="container">
+    <form id="quizForm">
+      <label><input type="checkbox" name="visual"> Anak cenderung lebih senang melihat dan mengamati objek.</label>
+      <label><input type="checkbox" name="visual"> Anak cenderung tertarik pada objek yang mencolok dan berwarna-warni.</label>
+      <label><input type="checkbox" name="visual"> Anak cenderung sering terlihat melamun saat mengingat sesuatu.</label>
+      <label><input type="checkbox" name="visual"> Anak cenderung memperhatikan gerak-gerik orang yang berbicara.</label>
+      <label><input type="checkbox" name="visual"> Anak cenderung lebih memahami instruksi tertulis daripada lisan.</label>
+
+      <label><input type="checkbox" name="auditori"> Anak cenderung lebih suka menerima informasi secara suara.</label>
+      <label><input type="checkbox" name="auditori"> Anak cenderung sering mengulang kata yang disampaikan orang lain.</label>
+      <label><input type="checkbox" name="auditori"> Anak cenderung bisa mengingat informasi dengan lagu atau irama.</label>
+      <label><input type="checkbox" name="auditori"> Anak cenderung bisa mengulang perkataan orang meskipun tidak memperhatikan.</label>
+      <label><input type="checkbox" name="auditori"> Anak cenderung senang berdiskusi dan berdebat.</label>
+
+      <label><input type="checkbox" name="kinestetik"> Anak cenderung suka belajar sambil bergerak atau beraktivitas.</label>
+      <label><input type="checkbox" name="kinestetik"> Anak cenderung sulit duduk diam dalam waktu lama.</label>
+      <label><input type="checkbox" name="kinestetik"> Anak cenderung lebih memahami dengan praktik langsung.</label>
+      <label><input type="checkbox" name="kinestetik"> Anak cenderung mudah mengingat dengan melakukan gerakan.</label>
+      <label><input type="checkbox" name="kinestetik"> Anak cenderung terburu-buru atau tidak sabaran.</label>
+
+      <button type="button" onclick="hitungGayaBelajar()">Lihat Hasil</button>
+    </form>
+
+    <div id="result"></div>
+
+    <div class="footer">
+      💬 Semua tes kami gratis dan bisa langsung diisi. Tapi kalau kamu ingin temani tumbuh anak setiap hari — kami siap bantu.
+    </div>
+
+    <div class="premium-link">
+      <a href="https://lilsmart-dev.github.io/Temanitumbuh/premium.html" target="_blank">🔓 Buka versi Premium</a>
+    </div>
+  </div>
+
+  <script>
+    function hitungGayaBelajar() {
+      const visual = document.querySelectorAll('input[name="visual"]:checked').length;
+      const auditori = document.querySelectorAll('input[name="auditori"]:checked').length;
+      const kinestetik = document.querySelectorAll('input[name="kinestetik"]:checked').length;
+
+      const skor = [
+        { jenis: 'A', nama: 'Auditory', nilai: auditori },
+        { jenis: 'V', nama: 'Visual', nilai: visual },
+        { jenis: 'K', nama: 'Kinesthetic', nilai: kinestetik }
+      ];
+
+      skor.sort((a, b) => b.nilai - a.nilai || ['A', 'V', 'K'].indexOf(a.jenis) - ['A', 'V', 'K'].indexOf(b.jenis));
+
+      const urutanKode = skor.map(s => s.jenis).join('');
+      const urutanNama = skor.map(s => s.nama.toLowerCase()).join('-');
+
+      let kategori = '-';
+      switch (urutanKode) {
+        case 'AVK': kategori = 'A'; break;
+        case 'AKV': kategori = 'B'; break;
+        case 'VAK': kategori = 'C'; break;
+        case 'VKA': kategori = 'D'; break;
+        case 'KVA': kategori = 'E'; break;
+        case 'KAV': kategori = 'F'; break;
+        default: kategori = 'Tidak Diketahui';
+      }
+
+      let deskripsi = '';
+      switch (skor[0].jenis) {
+        case 'V':
+          deskripsi = 'Anak Anda cenderung belajar paling baik melalui penglihatan, seperti gambar, warna, atau observasi. Cobalah gunakan alat bantu visual saat mendampingi belajar.';
+          break;
+        case 'A':
+          deskripsi = 'Anak Anda cenderung belajar paling efektif dengan mendengarkan, seperti melalui lagu, diskusi, atau suara. Gunakan instruksi verbal atau audio untuk membantunya.';
+          break;
+        case 'K':
+          deskripsi = 'Anak Anda cenderung lebih memahami melalui gerakan dan pengalaman langsung. Gunakan aktivitas fisik atau praktik saat belajar.';
+          break;
+      }
+
+      document.getElementById('result').innerHTML = `
+        🎨 <strong>Gaya Belajar Dominan:</strong> ${urutanNama}<br><br>
+        ${deskripsi}
+      `;
+    }
+  </script>
+</body>
+</html>
