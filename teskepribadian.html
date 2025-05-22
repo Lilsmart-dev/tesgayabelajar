@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌿 Temani Tumbuh - Tes Kepribadian Anak</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+      font-size: 1.8rem;
+    }
+    header {
+      background-color: #e3f6f5;
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 4.5rem;
+    }
+    header p {
+      font-size: 2.4rem;
+      max-width: 1000px;
+      margin: 2rem auto 0;
+    }
+    .container {
+      padding: 6rem 3rem;
+      max-width: 1600px;
+      margin: auto;
+    }
+    form {
+      background: white;
+      padding: 4rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+    button {
+      margin-top: 3rem;
+      width: 100%;
+      padding: 2rem;
+      font-size: 2rem;
+      background-color: #38b6ff;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #2597d5;
+    }
+    #result {
+      margin-top: 4rem;
+      padding: 4rem;
+      background: #e6f7ff;
+      border-left: 10px solid #38b6ff;
+      border-radius: 24px;
+      font-size: 2rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tipe {
+      margin-bottom: 3rem;
+    }
+    .tipe h3 {
+      margin-bottom: 1rem;
+      font-size: 2.4rem;
+    }
+    .tipe p {
+      margin: 0.5rem 0;
+    }
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.8rem;
+      color: #666;
+    }
+    .premium-link {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .premium-link a {
+      display: inline-block;
+      background-color: #ffc107;
+      padding: 1.5rem 3rem;
+      border-radius: 16px;
+      color: #333;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .premium-link a:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿 Temani Tumbuh - Tes Kepribadian Anak</h1>
+    <p>Pilih beberapa pernyataan yang paling menggambarkan perilaku anak Anda. Jawaban Anda akan membantu mengenali kepribadian dominan anak, serta pengaruh pola asuh terhadap perkembangannya.</p>
+  </header>
+
+  <div class="container">
+    <form id="quizForm">
+      <!-- 20 Pertanyaan (5 per tipe) -->
+      <label><input type="checkbox" name="sanguinis"> Anak terlihat selalu bersemangat dan ceria.</label>
+      <label><input type="checkbox" name="sanguinis"> Anak mudah akrab dengan orang baru.</label>
+      <label><input type="checkbox" name="sanguinis"> Anak cenderung banyak bicara dan suka bercerita.</label>
+      <label><input type="checkbox" name="sanguinis"> Anak sangat ekspresif dan emosional.</label>
+      <label><input type="checkbox" name="sanguinis"> Anak menyukai perhatian dan pengakuan dari orang lain.</label>
+
+      <label><input type="checkbox" name="koleris"> Anak selalu ingin menang atau memimpin.</label>
+      <label><input type="checkbox" name="koleris"> Anak cepat bertindak dan tidak suka menunggu.</label>
+      <label><input type="checkbox" name="koleris"> Anak cenderung percaya diri dan tegas.</label>
+      <label><input type="checkbox" name="koleris"> Anak suka menetapkan target atau tujuan.</label>
+      <label><input type="checkbox" name="koleris"> Anak berani mengambil risiko dan menghadapi tantangan.</label>
+
+      <label><input type="checkbox" name="flegmatis"> Anak sangat sabar dan tenang.</label>
+      <label><input type="checkbox" name="flegmatis"> Anak tidak suka konflik dan lebih memilih damai.</label>
+      <label><input type="checkbox" name="flegmatis"> Anak cenderung pasif dan tidak ingin menonjol.</label>
+      <label><input type="checkbox" name="flegmatis"> Anak mudah diajak bekerja sama.</label>
+      <label><input type="checkbox" name="flegmatis"> Anak sering menunda-nunda tugas atau keputusan.</label>
+
+      <label><input type="checkbox" name="melankolis"> Anak sangat rapi dan teratur.</label>
+      <label><input type="checkbox" name="melankolis"> Anak suka hal-hal yang detail dan teliti.</label>
+      <label><input type="checkbox" name="melankolis"> Anak cenderung perfeksionis dan takut salah.</label>
+      <label><input type="checkbox" name="melankolis"> Anak suka menyendiri atau diam.</label>
+      <label><input type="checkbox" name="melankolis"> Anak sensitif dan mudah merasa sedih.</label>
+
+      <button type="button" onclick="hitungKepribadian()">Lihat Hasil</button>
+    </form>
+
+    <div id="result"></div>
+
+    <div class="footer">
+      💬 Semua tes kami gratis dan bisa langsung diisi. Tapi kalau kamu ingin temani tumbuh anak setiap hari — kami siap bantu.
+    </div>
+
+    <div class="premium-link">
+      <a href="https://lilsmart-dev.github.io/Temanitumbuh/premium.html" target="_blank">🔓 Coba Versi Premium</a>
+    </div>
+  </div>
+
+  <script>
+    function hitungKepribadian() {
+      const tipeData = [
+        {
+          kode: 'sanguinis',
+          label: 'Promotor (Sanguinis)',
+          positif: 'Ceria, bersemangat, mudah akrab, dan penuh ide.',
+          negatif: 'Kurang fokus, mudah lupa, dan suka melebih-lebihkan.',
+          saran: 'Berikan struktur sederhana dan rutin. Bantu anak untuk tetap menyelesaikan tugas sampai tuntas.'
+        },
+        {
+          kode: 'koleris',
+          label: 'Controller (Koleris)',
+          positif: 'Tegas, percaya diri, dan suka tantangan.',
+          negatif: 'Keras kepala, suka mengatur, dan kurang sabar.',
+          saran: 'Seringlah ajak anak berdiskusi dan beri ruang untuk menyampaikan ide secara konstruktif.'
+        },
+        {
+          kode: 'flegmatis',
+          label: 'Facilitator (Flegmatis)',
+          positif: 'Tenang, penyabar, dan mudah bekerja sama.',
+          negatif: 'Kurang inisiatif, menunda keputusan, dan pasif.',
+          saran: 'Dorong anak mencoba hal baru secara bertahap. Hargai setiap usaha meski kecil.'
+        },
+        {
+          kode: 'melankolis',
+          label: 'Analytical (Melankolis)',
+          positif: 'Teliti, teratur, dan punya standar tinggi.',
+          negatif: 'Perfeksionis, sensitif, dan mudah khawatir.',
+          saran: 'Bantu anak memahami bahwa tidak apa-apa membuat kesalahan. Bangun rasa percaya diri melalui apresiasi.'
+        }
+      ];
+
+      tipeData.forEach(tipe => {
+        tipe.nilai = document.querySelectorAll(`input[name="${tipe.kode}"]:checked`).length;
+      });
+
+      tipeData.sort((a, b) => b.nilai - a.nilai);
+      const dominan = tipeData[0];
+
+      let html = `🌟 <strong>Tipe Kepribadian Dominan:</strong> ${dominan.label}<br><br>`;
+
+      tipeData.forEach(tipe => {
+        html += `
+          <div class="tipe">
+            <h3>${tipe.label}</h3>
+            <p><strong>Skor:</strong> ${tipe.nilai} dari 5</p>
+            <p><strong>Kekuatan:</strong> ${tipe.positif}</p>
+            <p><strong>Tantangan:</strong> ${tipe.negatif}</p>
+            <p><strong>Saran Pola Asuh:</strong> ${tipe.saran}</p>
+          </div>
+        `;
+      });
+
+      html += `<em>Catatan:</em> Setiap anak memiliki semua kepribadian ini dalam kadar berbeda. Pola asuh dan lingkungan sangat berperan membentuk perilaku positif maupun tantangan dari setiap tipe.`;
+
+      document.getElementById('result').innerHTML = html;
+    }
+  </script>
+</body>
+</html>
